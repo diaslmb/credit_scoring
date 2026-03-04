@@ -135,7 +135,8 @@ if st.button("🔍 Проверить клиента", type="primary", use_conta
     with st.expander("📋 Детали введённых данных"):
         display_df = input_data.T.reset_index()
         display_df.columns = ["Параметр", "Значение"]
-        st.dataframe(display_df, use_container_width=True)
+        display_df["Значение"] = display_df["Значение"].astype(str)
+        st.dataframe(display_df, width='stretch')
 
 # ─── Подвал ──────────────────────────────────────────────────
 st.caption("🏦 Кредитный скоринг | XGBoost Pipeline | Курс ML, Неделя 19 | 🇰🇿")
